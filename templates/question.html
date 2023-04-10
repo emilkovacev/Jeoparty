@@ -37,7 +37,7 @@
                 let key = answer.getAttribute("key");
                 console.log(key)
                 const xhttp = new XMLHttpRequest();
-                xhttp.open("POST", `/complete/${key}`)
+                xhttp.open("GET", `/complete/${key}`)
                 xhttp.send();
             })
 
