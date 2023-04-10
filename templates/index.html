@@ -8,20 +8,20 @@
         <div class="board">
             {% for category in categories %}
                 <div class="block">
-                    <span class="category block-text">{{ category }}</span>
+                    <span class="category text">{{ category }}</span>
                 </div>
             
                 {% for question in data[category] | sort(attribute='Points') %}
-                    <a class="block" href="/">
-                        <span class="block-text">${{ question['Points'] }}</span>
+                    <a class="block hoverable" href="/question/{{ question['key'] }}">
+                        {% if question['key'] in keys %}
+                        <span class="text">${{ question['Points'] }}</span>
+                        {% endif %}
                     </a>
                 {% endfor %}
             {% endfor %} 
         </div>
 
         <form class="upload-file" action="/upload" method="POST", enctype=multipart/form-data>
-            <label for="avatar">Upload CSV:</label>
-
             <input type="file"
                 id="data" name="data"
                           accept="text/csv"><br><br>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/reset.css">
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <a id="answer" class="box hidden" href="/" key="{{ entry['key'] }}"> 
+            <div class="text header">{{ entry['Category'] }} - <span class="orange">{{ entry['Points'] }}</span></div>
+            <div class="container">
+                <div class="prompt">{{ entry['Answer'] }}</div>
+            </div>
+        </a>
+        <div id="question" class="box hoverable">
+            <div class="text header">{{ entry['Category'] }} - <span class="orange">{{ entry['Points'] }}</span></div>
+            <div class="container">
+                <div class="prompt">{{ entry['Question'] }}</div>
+            </div>
+        </div>
+        <script>
+            let question = document.getElementById("question");
+            let answer = document.getElementById("answer");
+
+            question.addEventListener("click", () => {
+                question.style.display = "none";
+                answer.style.display = "block";
+            })
+
+            answer.addEventListener("click", () => {
+                console.log("clicking");
+                let key = answer.getAttribute("key");
+                console.log(key)
+                const xhttp = new XMLHttpRequest();
+                xhttp.open("POST", `/complete/${key}`)
+                xhttp.send();
+            })
+        </script>
+    </body>
+</html>

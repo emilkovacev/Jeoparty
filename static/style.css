@@ -13,7 +13,11 @@
     --block-height: 80px;
 }
 
-html {
+.orange {
+    color: var(--orange) !important;
+}
+
+body {
     font-family: 'Bebas Neue', cursive;
     display: flex;
     justify-content: center;
@@ -21,6 +25,8 @@ html {
     flex-direction: column;
     width: 100vw;
     min-height: 100vh;
+
+    background-image: url("../static/jeoparty-background.png")
 }
 
 .board {
@@ -49,7 +55,7 @@ html {
     font-size: 24px !important;
 }
 
-.block-text {
+.text {
     font-size: 30px;
     color: var(--orange);
     text-shadow: 2px 2px var(--black);
@@ -68,11 +74,46 @@ html {
     background-color: var(--blue);
 }
 
-.block:hover {
+.hoverable:hover {
     cursor: pointer;
     background-color: var(--hover-blue);
 }
 
-.question {
+.box {
+    background-color: var(--blue);
+    width: calc(100vw - 250px);
+    height: calc(100vh - 250px);
+    padding: 50px;
+    text-align: center;
+}
+
+.header {
+    font-size: 50px;
+    color: var(--white);
+    text-shadow: 2px 2px var(--black);
+    text-align: center;
+    padding: 6px;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+}
+
+.prompt {
     font-family: 'Della Respira', serif;
+    font-size: 80px;
+    color: var(--white);
+    text-shadow: 4px 4px var(--black);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.hidden {
+    display: none;
 }
