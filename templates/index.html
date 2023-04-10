@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="static/reset.css">
-        <link rel="stylesheet" href="static/style.css">
+        <link rel="stylesheet" href="/static/reset.css">
+        <link rel="stylesheet" href="/static/style.css">
+        <title>Jeopardy!</title>
     </head>
     <body>
+        <h1 class="title">Jeoparty!</h1>
         <div class="board">
             {% for category in categories %}
-                <div class="block">
+                <div class="category block">
                     <span class="category text">{{ category }}</span>
                 </div>
             

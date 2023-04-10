@@ -11,7 +11,7 @@
     --white: #ffffff;
 
     --block-width: 120px;
-    --block-height: 80px;
+    --block-height: 70px;
 
     --shadow-offset: 2px;
     --large-shadow-offset: 4px;
@@ -27,7 +27,6 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100vw;
     min-height: 100vh;
 
     background-image: url("../static/jeoparty-background.png")
@@ -85,9 +84,8 @@ body {
 
 .box {
     background-color: var(--blue);
-    width: calc(100vw - 250px);
-    height: calc(100vh - 250px);
-    padding: 50px;
+    width: calc(100vw - 150px);
+    height: calc(100vh - 150px);
     text-align: center;
 }
 
@@ -109,6 +107,7 @@ body {
     font-size: 80px;
     color: var(--white);
     text-shadow: var(--large-shadow-offset) var(--large-shadow-offset) var(--black);
+    padding: 50px;
 }
 
 .container {
@@ -124,4 +123,20 @@ body {
 
 .disabled {
     background-color: var(--disabled-blue);
+}
+
+.title {
+    font-size: 100px;
+    color: white;
+    text-shadow: var(--large-shadow-offset) var(--large-shadow-offset) var(--black);
+}
+
+.category {
+}
+
+.bar {
+    position: relative;
+    width: 0%;
+    height: 10px;
+    background-color: red;
 }

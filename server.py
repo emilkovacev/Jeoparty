@@ -49,8 +49,8 @@ def upload_data():
 @app.route("/question/<key>")
 def render_question(key):
     entry = session.get("keys")[key]
-    session["keys"].pop(key)
-    session.modified = True
+    # session["keys"].pop(key)
+    # session.modified = True
     return render_template("question.html", entry=entry)
 
 @app.route("/complete/<key>", methods=["POST"])

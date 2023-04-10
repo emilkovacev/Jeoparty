@@ -3,16 +3,18 @@
     <head>
         <link rel="stylesheet" href="/static/reset.css">
         <link rel="stylesheet" href="/static/style.css">
+        <title>Jeopardy!</title>
     </head>
     <body>
         <a id="answer" class="box hidden" href="/" key="{{ entry['key'] }}"> 
-            <div class="text header">{{ entry['Category'] }} - <span class="orange">{{ entry['Points'] }}</span></div>
+            <div class="text header">{{ entry['Category'] }} - <span class="orange">${{ entry['Points'] }}</span></div>
             <div class="container">
                 <div class="prompt">{{ entry['Answer'] }}</div>
             </div>
         </a>
         <div id="question" class="box hoverable">
-            <div class="text header">{{ entry['Category'] }} - <span class="orange">{{ entry['Points'] }}</span></div>
+            <div id="bar" class="bar"></div>
+            <div class="text header">{{ entry['Category'] }} - <span class="orange">${{ entry['Points'] }}</span></div>
             <div class="container">
                 <div class="prompt">{{ entry['Question'] }}</div>
             </div>
@@ -20,11 +22,15 @@
         <script>
             let question = document.getElementById("question");
             let answer = document.getElementById("answer");
+            let bar = document.getElementById("bar");
+            let i = 100.0;
 
-            question.addEventListener("click", () => {
+            function revealAnswer() {
                 question.style.display = "none";
                 answer.style.display = "block";
-            })
+            }
+
+            question.addEventListener("click", revealAnswer);
 
             answer.addEventListener("click", () => {
                 console.log("clicking");
@@ -34,6 +40,18 @@
                 xhttp.open("POST", `/complete/${key}`)
                 xhttp.send();
             })
+
+            function updateBar() {
+                if (i > 0) {
+                    i -= 0.1;
+                    bar.style.width = `${i}%`;
+                }
+                else {
+                    revealAnswer();
+                }
+            }
+
+            setInterval(updateBar, 50);
         </script>
     </body>
 </html>
