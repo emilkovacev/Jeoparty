@@ -15,7 +15,7 @@ $ source venv/bin/activate
 
 2. Install packages
 ```
-python3 -m pip install -r requirements.txt
+$ python3 -m pip install -r requirements.txt
 ```
 
 3. To run, simply run the command in the project root:
