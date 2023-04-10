@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="static/reset.css">
+        <link rel="stylesheet" href="static/style.css">
+    </head>
+    <body>
+        <div class="board">
+            {% for category in categories %}
+                <div class="block">
+                    <span class="category block-text">{{ category }}</span>
+                </div>
+            
+                {% for question in data[category] | sort(attribute='Points') %}
+                    <a class="block" href="/">
+                        <span class="block-text">${{ question['Points'] }}</span>
+                    </a>
+                {% endfor %}
+            {% endfor %} 
+        </div>
+
+        <form class="upload-file" action="/upload" method="POST", enctype=multipart/form-data>
+            <label for="avatar">Upload CSV:</label>
+
+            <input type="file"
+                id="data" name="data"
+                          accept="text/csv"><br><br>
+            <input type="submit">
+        </form>
+    </body>
+</html>

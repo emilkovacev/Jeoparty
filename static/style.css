@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Della+Respira&display=swap');
+
+:root {
+    --rows: 7;
+    --categories: 6;
+    --orange: #ffc90c;
+    --blue: #0216a0;
+    --hover-blue: #0a21bf;
+    --black: #000000;
+    --white: #ffffff;
+
+    --block-width: 120px;
+    --block-height: 80px;
+}
+
+html {
+    font-family: 'Bebas Neue', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.board {
+    padding: 6px;
+    background-color: var(--black);
+
+    display: inline-grid;
+    grid-template-columns: repeat(var(--categories), var(--block-width));
+    grid-auto-flow: column;
+    gap: 6px;
+    grid-template-rows: repeat(var(--rows), var(--block-height));
+}
+
+.upload-file {
+    text-align: center;
+    margin: 20px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.category {
+    color: var(--white) !important;
+    font-size: 24px !important;
+}
+
+.block-text {
+    font-size: 30px;
+    color: var(--orange);
+    text-shadow: 2px 2px var(--black);
+    text-align: center;
+    padding: 6px;
+}
+
+.block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: var(--block-width);
+    height: var(--block-height);
+
+    background-color: var(--blue);
+}
+
+.block:hover {
+    cursor: pointer;
+    background-color: var(--hover-blue);
+}
+
+.question {
+    font-family: 'Della Respira', serif;
+}
