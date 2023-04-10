@@ -12,11 +12,13 @@
                 </div>
             
                 {% for question in data[category] | sort(attribute='Points') %}
-                    <a class="block hoverable" href="/question/{{ question['key'] }}">
-                        {% if question['key'] in keys %}
-                        <span class="text">${{ question['Points'] }}</span>
-                        {% endif %}
-                    </a>
+                    {% if question['key'] in keys %}
+                        <a class="block hoverable" href="/question/{{ question['key'] }}"> 
+                            <span class="text">${{ question['Points'] }}</span>   
+                        </a>
+                    {% else %}
+                        <div class="block disabled"></div>
+                    {% endif %}
                 {% endfor %}
             {% endfor %} 
         </div>

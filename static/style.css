@@ -6,11 +6,15 @@
     --orange: #ffc90c;
     --blue: #0216a0;
     --hover-blue: #0a21bf;
+    --disabled-blue: #00128c;
     --black: #000000;
     --white: #ffffff;
 
     --block-width: 120px;
     --block-height: 80px;
+
+    --shadow-offset: 2px;
+    --large-shadow-offset: 4px;
 }
 
 .orange {
@@ -58,7 +62,7 @@ body {
 .text {
     font-size: 30px;
     color: var(--orange);
-    text-shadow: 2px 2px var(--black);
+    text-shadow: var(--shadow-offset) var(--shadow-offset) var(--black);
     text-align: center;
     padding: 6px;
 }
@@ -90,7 +94,7 @@ body {
 .header {
     font-size: 50px;
     color: var(--white);
-    text-shadow: 2px 2px var(--black);
+    text-shadow: var(--shadow-offset) var(--shadow-offset) var(--black);
     text-align: center;
     padding: 6px;
     margin-bottom: 20px;
@@ -104,7 +108,7 @@ body {
     font-family: 'Della Respira', serif;
     font-size: 80px;
     color: var(--white);
-    text-shadow: 4px 4px var(--black);
+    text-shadow: var(--large-shadow-offset) var(--large-shadow-offset) var(--black);
 }
 
 .container {
@@ -116,4 +120,8 @@ body {
 
 .hidden {
     display: none;
+}
+
+.disabled {
+    background-color: var(--disabled-blue);
 }
