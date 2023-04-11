@@ -13,7 +13,7 @@
             </div>
         </a>
         <div id="question" class="box hoverable">
-            <div id="bar" class="bar"></div>
+            {% if bar %}<div id="bar" class="bar"></div>{% endif %}
             <div class="text header">{{ entry['Category'] }} - <span class="orange">${{ entry['Points'] }}</span></div>
             <div class="container">
                 <div class="prompt">{{ entry['Question'] }}</div>
@@ -22,8 +22,11 @@
         <script>
             let question = document.getElementById("question");
             let answer = document.getElementById("answer");
+
+            {% if bar %}
             let bar = document.getElementById("bar");
             let i = 100.0;
+            {% endif %}
 
             function revealAnswer() {
                 question.style.display = "none";
@@ -41,6 +44,7 @@
                 xhttp.send();
             })
 
+            {% if bar %}
             function updateBar() {
                 if (i > 0) {
                     i -= 0.1;
@@ -50,6 +54,7 @@
                     revealAnswer();
                 }
             }
+            {% endif %}
 
             setInterval(updateBar, 50);
         </script>

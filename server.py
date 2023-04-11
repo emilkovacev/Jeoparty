@@ -5,6 +5,7 @@ from io import StringIO
 
 app = Flask(__name__)
 app.secret_key = "BAD_SECRET_KEY"
+bar = False # choose whether or not to display a countdown bar
 
 @app.route("/")
 def hello_world():
@@ -16,7 +17,8 @@ def hello_world():
         "index.html",
         categories=data.keys(),
         data=data,
-        keys=keys
+        keys=keys,
+        bar=bar
     )
 
 @app.route("/upload", methods=["POST"])
